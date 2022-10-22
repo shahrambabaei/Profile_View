@@ -6,20 +6,25 @@ import 'package:profile/fragment/personal_information.dart';
 import 'package:profile/fragment/skills__view.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, required this.onClick});
+  final GestureTapCallback onClick;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('curricumlum vitae'),
-        actions: const [
-          Icon(CupertinoIcons.chat_bubble),
-          SizedBox(width: 8),
-          Padding(
-            padding: EdgeInsets.only(right: 14),
-            child: Icon(CupertinoIcons.ellipsis_vertical),
-          )
+        actions: [
+          IconButton(
+              splashRadius: 20,
+              padding: const EdgeInsets.all(0),
+              constraints: const BoxConstraints(maxWidth: 35),
+              onPressed: () {},
+              icon: const Icon(CupertinoIcons.chat_bubble)),
+          IconButton(
+              splashRadius: 20,
+              onPressed: onClick,
+              icon: const Icon(CupertinoIcons.circle_lefthalf_fill)),
         ],
       ),
       body: SingleChildScrollView(
