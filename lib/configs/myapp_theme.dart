@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class MyAppThemeConfig {
+  static const String faPrimaryFontFamily = 'Vazir';
   final Color primaryColor = Colors.pink.shade400;
   final Color primaryTextColor;
   final Color secondaryTextColor;
@@ -27,27 +27,52 @@ class MyAppThemeConfig {
         appBarColor = const Color.fromARGB(255, 235, 235, 235),
         brightness = Brightness.light;
 
-  ThemeData getTheme() {
+  ThemeData getTheme({required String languageCode}) {
     return ThemeData(
         brightness: brightness,
         scaffoldBackgroundColor: backgroundColor,
         appBarTheme: AppBarTheme(
-          elevation: 0,
-            backgroundColor: appBarColor, foregroundColor: primaryTextColor),
+            elevation: 0,
+            backgroundColor: appBarColor,
+            foregroundColor: primaryTextColor),
         inputDecorationTheme: InputDecorationTheme(
             filled: true,
             fillColor: surfaceColor,
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
                 borderSide: BorderSide.none)),
-        textTheme: GoogleFonts.latoTextTheme(TextTheme(
-            headline6:
-                TextStyle(fontWeight: FontWeight.bold, color: primaryTextColor),
-            bodyText2: TextStyle(fontSize: 15, color: primaryTextColor),
-            bodyText1: TextStyle(fontSize: 14, color: secondaryTextColor),
-            subtitle1: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: primaryTextColor))));
+        textTheme:
+            languageCode == 'en' ? enPrimaryTextTheme : faPrimaryTextTheme);
   }
+
+  TextTheme get enPrimaryTextTheme => GoogleFonts.latoTextTheme(TextTheme(
+      headline6:
+          TextStyle(fontWeight: FontWeight.bold, color: primaryTextColor),
+      bodyText2: TextStyle(fontSize: 15, color: primaryTextColor),
+      bodyText1:
+          TextStyle(fontSize: 14, color: secondaryTextColor, height: 1.5),
+      subtitle1: TextStyle(
+          fontSize: 16, fontWeight: FontWeight.bold, color: primaryTextColor)));
+
+  TextTheme get faPrimaryTextTheme => TextTheme(
+      headline6: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 18,
+          color: primaryTextColor,
+          fontFamily: faPrimaryFontFamily),
+      bodyText2: TextStyle(
+          fontSize: 14,
+          color: primaryTextColor,
+          fontFamily: faPrimaryFontFamily),
+      bodyText1: TextStyle(
+          fontSize: 13,
+          height: 1.5,
+          color: secondaryTextColor,
+          fontFamily: faPrimaryFontFamily),
+      caption: const TextStyle(fontFamily: faPrimaryFontFamily),
+      subtitle1: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: primaryTextColor,
+          fontFamily: faPrimaryFontFamily));
 }

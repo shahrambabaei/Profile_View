@@ -1,21 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:profile/configs/color_theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PersonalInformation extends StatelessWidget {
   const PersonalInformation({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final appLocalizations = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 20, 20, 15),
       child: Form(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Personal Information',
+          Text(appLocalizations.personalInformation,
               style: Theme.of(context)
                   .textTheme
                   .bodyText2!
@@ -24,13 +24,15 @@ class PersonalInformation extends StatelessWidget {
             height: 15,
           ),
           TextFormField(
-            decoration: const InputDecoration(
-                prefixIcon: Icon(CupertinoIcons.at), label: Text('Email')),
+            decoration: InputDecoration(
+                prefixIcon: const Icon(CupertinoIcons.at),
+                label: Text(appLocalizations.email)),
           ),
           const SizedBox(height: 10),
           TextFormField(
-            decoration: const InputDecoration(
-                prefixIcon: Icon(CupertinoIcons.lock), label: Text('Password')),
+            decoration: InputDecoration(
+                prefixIcon: const Icon(CupertinoIcons.lock),
+                label: Text(appLocalizations.password)),
           ),
           const SizedBox(height: 10),
           SizedBox(
@@ -43,9 +45,9 @@ class PersonalInformation extends StatelessWidget {
                   backgroundColor: ColorTheme.primaryColor,
                 ),
                 onPressed: () {},
-                child: const Text(
-                  'Save',
-                  style: TextStyle(fontSize: 18),
+                child: Text(
+                  appLocalizations.save,
+                  style: const TextStyle(fontSize: 18),
                 )),
           ),
         ],

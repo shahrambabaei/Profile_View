@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:profile/configs/color_theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ImageView extends StatelessWidget {
   const ImageView({super.key});
@@ -8,6 +9,7 @@ class ImageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
+    final appLocalizations = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 30, 20, 20),
       child: Column(
@@ -27,13 +29,13 @@ class ImageView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Brice Séraphin',
+                      appLocalizations.name,
                       style: themeData.textTheme.subtitle1,
                     ),
                     const SizedBox(
                       height: 2,
                     ),
-                    const Text('Product& Product Designer'),
+                     Text(appLocalizations.job),
                     const SizedBox(
                       height: 4,
                     ),
@@ -45,7 +47,7 @@ class ImageView extends StatelessWidget {
                           color: themeData.textTheme.bodyText1!.color,
                         ),
                         Text(
-                          'Paris, France',
+                          appLocalizations.location,
                           style: themeData.textTheme.caption,
                         )
                       ],
@@ -61,7 +63,7 @@ class ImageView extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           Text(
-            'Enthusiastic young computer Geek,Freelance Designer in love of independence,I have alot of experience in graphical projects,and always give the best of myself to bring you to success.',
+            appLocalizations.summary,
             style: themeData.textTheme.bodyText1,
           ),
         ],
