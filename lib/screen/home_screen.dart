@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:profile/configs/color_theme.dart';
 
 import 'package:profile/fragment/image_view.dart';
 import 'package:profile/fragment/personal_information.dart';
@@ -66,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Text(appLocalizations.selectedLanguage),
                   CupertinoSlidingSegmentedControl<Language>(
+                    thumbColor: ColorTheme.primaryColor,
                     groupValue: _language,
                     children: {
                       Language.en: Text(appLocalizations.enLanguage,

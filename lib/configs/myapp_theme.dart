@@ -36,6 +36,10 @@ class MyAppThemeConfig {
             backgroundColor: appBarColor,
             foregroundColor: primaryTextColor),
         inputDecorationTheme: InputDecorationTheme(
+            labelStyle: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.normal,
+            ),
             filled: true,
             fillColor: surfaceColor,
             border: OutlineInputBorder(
@@ -74,5 +78,6 @@ class MyAppThemeConfig {
           fontSize: 16,
           fontWeight: FontWeight.bold,
           color: primaryTextColor,
-          fontFamily: faPrimaryFontFamily));
+          fontFamily: faPrimaryFontFamily),
+      button: const TextStyle(fontFamily: faPrimaryFontFamily));
 }
